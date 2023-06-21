@@ -1,25 +1,25 @@
 package models;
 
-import jakarta.xml.bind.annotation.XmlAccessType;
-import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlRootElement;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-@XmlRootElement(name = "order")
-@XmlAccessorType(XmlAccessType.FIELD)
+@NoArgsConstructor
 @Getter
 @Setter
 public class Order {
     private int id;
     private LocalDate date;
     private double cost;
-    private static ArrayList<Product> products=new ArrayList<>();;
+    static ArrayList<Product> products = new ArrayList<>();
 
     public Order(int id, LocalDate date, double cost) {
+        this.id = id;
+        this.date = date;
+        this.cost = cost;
         products.add(new Product(1, "Coffee", 50));
         products.add(new Product(2, "Tea", 35));
         products.add(new Product(3, "Juice", 40));

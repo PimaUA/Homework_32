@@ -30,11 +30,11 @@ public class OrderResource {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll() {
-        ArrayList<Order> listProducts = orderRepository.getAllOrders();
-        if (listProducts.isEmpty()) {
+        ArrayList<Order> listOrders = orderRepository.getAllOrders();
+        if (listOrders.isEmpty()) {
             return Response.noContent().build();
         }
-        return Response.ok(listProducts).build();
+        return Response.ok(listOrders).build();
     }
 
     @POST

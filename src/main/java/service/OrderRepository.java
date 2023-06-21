@@ -5,18 +5,17 @@ import models.Order;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class OrderRepository implements OrderService{
+public class OrderRepository implements OrderService {
     private static OrderRepository instance;
-    private static final ArrayList<Order> ordersList=new ArrayList<>();
+    private static final ArrayList<Order> ordersList = new ArrayList<>();
 
-    static{
+    static {
         ordersList.add(new Order(1, LocalDate.of(2023, 6, 12), 170));
         ordersList.add(new Order(2, LocalDate.of(2023, 6, 15), 170));
         ordersList.add(new Order(3, LocalDate.of(2023, 6, 14), 170));
     }
 
-    public OrderRepository() {
-
+    private OrderRepository() {
     }
 
     public static OrderRepository getInstance() {
