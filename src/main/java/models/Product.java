@@ -7,8 +7,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@XmlRootElement(name = "product")
-@XmlAccessorType(XmlAccessType.FIELD)
+//@XmlRootElement(name = "product")
+//@XmlAccessorType(XmlAccessType.FIELD)
 @Getter
 @Setter
 @AllArgsConstructor

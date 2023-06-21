@@ -1,20 +1,20 @@
 package com.rest.app;
 
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.glassfish.grizzly.http.server.HttpServer;
 import org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpServerFactory;
 import org.glassfish.jersey.server.ResourceConfig;
 import resource.OrderResource;
+import service.OrderRepository;
 
 import java.io.IOException;
 import java.net.URI;
 
 public class Main {
     private static final Logger LOGGER = LogManager.getLogger(Main.class);
-    //??
-    private static final URI BASE_URI = URI.create("http://localhost:8080/rest/");
+
+    private static final URI BASE_URI = URI.create("http://localhost:9999/rest/");
     public static final String ROOT_PATH = "orders";
 
     public static void main(String[] args) {
@@ -38,17 +38,14 @@ public class Main {
         } catch (IOException | InterruptedException ex) {
             LOGGER.debug("Exception ",ex);
         }
-
     }
 
     /**
-     * Create example application resource configuration.
+     * Create application resource configuration.
      *
-     * @return initialized resource configuration of the example application.
+     * @return initialized resource configuration of the application.
      */
     public static ResourceConfig create() {
-        final ResourceConfig resourceConfig = new ResourceConfig(OrderResource.class);
-
-        return resourceConfig;
+        return new ResourceConfig(OrderResource.class);
     }
 }
