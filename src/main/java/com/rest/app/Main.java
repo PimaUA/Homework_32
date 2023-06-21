@@ -19,31 +19,20 @@ public class Main {
     public static void main(String[] args) {
         try {
             final HttpServer server = GrizzlyHttpServerFactory.createHttpServer(BASE_URI, create(), false);
-            Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    server.shutdownNow();
-                }
-            }));
+            Runtime.getRuntime().addShutdownHook(new Thread(() -> server.shutdownNow()));
             server.start();
 
-            System.out.println(
-                    String.format("Application started.%n"
-                                    + "Try out %s%s%n"
-                                    + "Stop the application using CTRL+C",
-                            BASE_URI, ROOT_PATH));
+            System.out.printf("Application started.%n"
+                            + "Try out %s%s%n",
+                    BASE_URI, ROOT_PATH);
 
             Thread.currentThread().join();
         } catch (IOException | InterruptedException ex) {
-            LOGGER.debug("Exception ",ex);
+            LOGGER.debug("Exception thrown ", ex);
         }
     }
 
-    /**
-     * Create application resource configuration.
-     *
-     * @return initialized resource configuration of the application.
-     */
+    //application resource configuration
     public static ResourceConfig create() {
         return new ResourceConfig(OrderResource.class);
     }

@@ -1,30 +1,20 @@
 package models;
 
-
-
-import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
-//@Builder
 @NoArgsConstructor
 @Getter
 @Setter
 public class Order {
-   // @JsonProperty("field_name")
     private int id;
-   // @JsonProperty("field_name")
-   //@JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate date;
-   // @JsonProperty("field_name")
     private double cost;
-     static ArrayList<Product> products=new ArrayList<>();
-
+    static ArrayList<Product> products = new ArrayList<>();
 
     public Order(int id, LocalDate date, double cost) {
         this.id = id;
