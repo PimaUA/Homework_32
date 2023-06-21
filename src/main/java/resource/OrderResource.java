@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 @Path("orders")
 public class OrderResource {
-    private OrderRepository orderRepository = OrderRepository.getInstance();
+    private final OrderRepository orderRepository = OrderRepository.getInstance();
 
     @GET
     @Path("{id}")

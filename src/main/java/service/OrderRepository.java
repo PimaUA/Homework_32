@@ -1,29 +1,22 @@
 package service;
 
-import jakarta.ws.rs.GET;
-import jakarta.ws.rs.Path;
-import jakarta.ws.rs.Produces;
-import jakarta.ws.rs.core.MediaType;
 import models.Order;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class OrderRepository implements OrderService{
     private static OrderRepository instance;
-    private static ArrayList<Order> ordersList=new ArrayList<>();
-    //ArrayList<Order> ordersList;
+    private static final ArrayList<Order> ordersList=new ArrayList<>();
+
     static{
-        ordersList.add(new Order(1, LocalDate.of(2023, 6, 12), 170));
-        ordersList.add(new Order(2, LocalDate.of(2023, 6, 15), 170));
-        ordersList.add(new Order(3, LocalDate.of(2023, 6, 14), 170));
+        ordersList.add(new Order(1,LocalDate.of(2023, 06, 12), 170));
+        ordersList.add(new Order(2, LocalDate.of(2023, 06, 15), 170));
+        ordersList.add(new Order(3, LocalDate.of(2023, 06, 14), 170));
     }
 
     private OrderRepository() {
-        //ordersList=new ArrayList<>();
-        /*ordersList.add(new Order(1, LocalDate.of(2023, 6, 12), 170));
-        ordersList.add(new Order(2, LocalDate.of(2023, 6, 15), 170));
-        ordersList.add(new Order(3, LocalDate.of(2023, 6, 14), 170));*/
     }
 
     public static OrderRepository getInstance() {
